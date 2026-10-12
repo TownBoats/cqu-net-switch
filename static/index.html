@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f5ef">
+  <title>山城连接 · 重大校园网</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="#overview" aria-label="山城连接首页"><span class="brand-mark" aria-hidden="true">山</span><span>山城连接<small>CQU NETWORK</small></span></a>
+    <div class="side-caption">我的校园网络</div>
+    <nav aria-label="页面导航"><a class="active" href="#overview"><span aria-hidden="true">◉</span>连接概览<span class="nav-arrow" aria-hidden="true">↗</span></a><a href="#accounts"><span aria-hidden="true">⊞</span>账号管理</a><a href="#activity"><span aria-hidden="true">≡</span>操作记录</a></nav>
+    <div class="side-bottom"><span class="local-dot"></span>本机工作台<p>连接校园，也连接日常。</p><a href="https://login.cqu.edu.cn/" target="_blank" rel="noreferrer">打开校园网认证页 ↗</a></div>
+  </aside>
+  <main>
+    <header class="topbar"><span>重庆大学 <span class="slash">/</span> 校园网工作台</span><span id="today"></span></header>
+    <section id="overview" class="overview">
+      <div class="section-intro"><div><p class="eyebrow">YOUR CAMPUS, CONNECTED.</p><h1>连接，从这里开始<span class="title-dot">。</span></h1><p class="subtitle">掌握当前连接，让每一次账号切换都清晰可见。</p></div><button id="refresh" class="button secondary">↻ 刷新状态</button></div>
+      <div id="error" class="notice error" role="alert" hidden></div>
+      <div id="feedback" class="notice" role="status" hidden></div>
+      <div id="confirmation" class="confirmation" hidden><div><strong id="confirm-title"></strong><p id="confirm-detail"></p></div><div class="actions"><button id="confirm-cancel" class="button secondary">取消</button><button id="confirm-yes" class="button primary">确认</button></div></div>
+      <div class="connection-board">
+        <div class="connection-main"><div class="connection-top"><span class="label">当前连接</span><span id="status-badge" class="badge"><span class="dot"></span><span id="status-label">正在查询</span></span></div><div class="connection-identity"><div class="connection-symbol" aria-hidden="true"><span></span><span></span><span></span></div><div><h2 id="current-name">正在读取网络状态</h2><p id="current-account">连接本机认证门户…</p></div></div><div class="connection-foot"><span id="status-caption">首次查询需要几秒钟</span><button id="logout" class="text-button danger" disabled>断开连接 ↗</button></div></div>
+        <div class="connection-info"><div class="info-heading"><span>设备连接信息</span><span class="tiny-label">LIVE</span></div><dl><div><dt>IPv4 地址</dt><dd id="ipv4">—</dd></div><div><dt>MAC 地址</dt><dd id="mac">—</dd></div><div><dt>IPv6 地址</dt><dd id="ipv6">—</dd></div></dl><div class="update-line"><span id="checked-at">尚未更新</span><label class="auto-label"><input id="auto-refresh" type="checkbox" checked> 每 15 秒刷新</label></div></div>
+      </div>
+      <div class="metrics"><div><span class="label">门户累计流量</span><p><strong id="usage">—</strong><span id="usage-unit"></span></p><small>按认证门户统计口径</small></div><div><span class="label">门户累计时长</span><p><strong id="duration">—</strong><span id="duration-unit"></span></p><small>非本次连接时长</small></div><div><span class="label">本机保存账号</span><p><strong id="profile-count">0</strong><span>个</span></p><small>密码由 Windows 账户加密保护</small></div></div>
+    </section>
+    <section id="accounts" class="accounts-section"><div class="section-heading"><div><span class="section-number">01</span><h2>账号管理</h2><span id="account-counter" class="count-badge">0</span></div><button id="add-account" class="button primary">＋ 添加账号</button></div><p class="section-description">保存常用账号，随时切换这台设备的网络连接。</p>
+      <form id="profile-form" class="profile-form" hidden><div class="form-heading"><h3 id="form-title">添加一个校园网账号</h3><button type="button" id="close-form" class="text-button">收起 ×</button></div><input id="profile-id" type="hidden"><div class="form-fields"><label>账号备注 <span>选填</span><input id="profile-label" maxlength="50" placeholder="例如：日常使用"></label><label>校园网账号<input id="profile-account" required maxlength="100" autocomplete="username" placeholder="输入完整账号，保留后缀"></label><label>登录密码<input id="profile-password" type="password" required maxlength="256" autocomplete="new-password" placeholder="请输入密码"></label></div><div class="form-foot"><p id="password-hint">密码仅加密保存在本机，不会在列表中显示。</p><button id="save-account" class="button primary" type="submit">保存账号</button></div><p id="form-error" class="form-error" role="alert" hidden></p></form>
+      <div id="account-list" class="account-list"></div>
+      <div id="empty-accounts" class="empty-state"><span class="empty-mark" aria-hidden="true">＋</span><div><h3>把常用账号留在这里</h3><p>添加账号后，即可一键登录或切换。当前在线账号不会自动保存密码。</p><button id="add-current" class="text-button">添加当前账号 ↗</button></div></div>
+      <p class="account-note"><span aria-hidden="true">↔</span> 切换时将先注销当前账号，再连接目标账号，网络会短暂中断。</p>
+    </section>
+    <section id="activity" class="activity-section"><div class="section-heading"><div><span class="section-number">02</span><h2>操作记录</h2></div><span class="muted">本次服务运行期间 · 最近 40 条</span></div><ol id="event-list" class="event-list"><li class="event-empty">还没有操作记录。连接和账号管理操作会显示在这里。</li></ol></section>
+    <footer><span>山城连接 <span class="slash">/</span> 重庆大学校园网助手</span><span>本机运行 · 非官方工具</span></footer>
+  </main>
+</body>
+</html>

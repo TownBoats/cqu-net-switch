@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="256" height="256">
+  <!-- 山城连接 · 重庆大学校园网
+       元素：钟塔（重大地标）· 山城群峰 · 两江波浪 · 网络信号弧
+       配色：应用主题山城绿 #315e48 / 米白 #f5f5ef -->
+  <defs>
+    <clipPath id="badge">
+      <circle cx="64" cy="64" r="60"/>
+    </clipPath>
+  </defs>
+
+  <!-- 徽章底色 -->
+  <circle cx="64" cy="64" r="60" fill="#315e48"/>
+  <circle cx="64" cy="64" r="55.5" fill="none" stroke="#f5f5ef" stroke-opacity="0.18" stroke-width="1.5"/>
+
+  <g clip-path="url(#badge)">
+    <!-- 山城群峰（背景） -->
+    <polygon points="26,90 44,62 60,90" fill="#234b36"/>
+    <polygon points="66,90 84,64 102,90" fill="#234b36"/>
+
+    <!-- 两江波浪（底部） -->
+    <path d="M28 101 q9 -7 18 0 t18 0 t18 0 t18 0" fill="none" stroke="#f5f5ef" stroke-opacity="0.9" stroke-width="3" stroke-linecap="round"/>
+    <path d="M38 110 q9 -6 18 0 t18 0 t18 0" fill="none" stroke="#f5f5ef" stroke-opacity="0.5" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- 钟塔 -->
+    <rect x="62.4" y="21" width="3.2" height="10" rx="1" fill="#f5f5ef"/>
+    <circle cx="64" cy="19" r="2.2" fill="#f5f5ef"/>
+    <polygon points="52,42 76,42 64,30" fill="#f5f5ef"/>
+    <polygon points="55,42 73,42 77,94 51,94" fill="#f5f5ef"/>
+    <!-- 钟面 -->
+    <circle cx="64" cy="57" r="8.6" fill="#315e48"/>
+    <line x1="64" y1="57" x2="64" y2="51.4" stroke="#f5f5ef" stroke-width="2" stroke-linecap="round"/>
+    <line x1="64" y1="57" x2="67.6" y2="59.2" stroke="#f5f5ef" stroke-width="2" stroke-linecap="round"/>
+    <!-- 拱形门 -->
+    <path d="M59.8 94 v-7.4 a4.2 4.2 0 0 1 8.4 0 V94 z" fill="#315e48"/>
+  </g>
+
+  <!-- 网络信号弧（塔尖发出，四分之一圆弧） -->
+  <g fill="none" stroke="#f5f5ef" stroke-linecap="round">
+    <path d="M64 9.8 A9.2 9.2 0 0 1 73.2 19" stroke-width="2.8" stroke-opacity="0.95"/>
+    <path d="M64 3.8 A15.2 15.2 0 0 1 79.2 19" stroke-width="2.6" stroke-opacity="0.65"/>
+  </g>
+</svg>
